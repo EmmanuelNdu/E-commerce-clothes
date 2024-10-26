@@ -4,6 +4,8 @@ import { ShopContext } from '../Context/ShopContext'
 import { useContext } from 'react';
 // import dropdown_icon from '../Assets/dropdown_icon.png'
 import Item from '../Components/Item/Item'
+import DescriptionBox from '../Components/DescriptionBox/DescriptionBox';
+import RelatedProducts from '../Components/RelatedProducts/RelatedProducts';
 
  const dropdown_icon = '/Assets/dropdown_icon.png'
 // const Item = '/Assets/Item/Item'
@@ -34,6 +36,9 @@ const ShopCategory = (props) => {
       <div className="shopcategory-loadmore">
         Explore more
       </div>
+
+      <DescriptionBox />
+      <RelatedProducts />
     </div>
   )
 }

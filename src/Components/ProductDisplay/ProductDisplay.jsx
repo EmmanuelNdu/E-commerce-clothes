@@ -15,6 +15,7 @@ const ProductDisplay = () => {
     const {all_product} = useContext(ShopContext);
     const { productId } = useParams(); 
     const product = all_product.find(product => product.id === parseInt(productId));
+    const {addToCart} = useContext(ShopContext);
     // const {product} = props;
 
     if (!product) {
@@ -61,7 +62,7 @@ const ProductDisplay = () => {
                     <div>XXL</div>
                 </div>
             </div>
-            <button>ADD TO CART</button>
+            <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
             <p className="productdisplay-right-category"><span>Category:</span>Women, T-shirt, Crop Top</p>
             <p className="productdisplay-right-category"><span>Tags:</span>Modern, Latest</p>
         </div>

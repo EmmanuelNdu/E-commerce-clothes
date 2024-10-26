@@ -7,9 +7,20 @@ import { useParams } from 'react-router-dom'
 // const breadcrum_arrow = '../Assets/breadcrum_arrow.png'
 
 const Breadcrums = (props) => {
+  const [productId, setProductId] = useState(null)
+  useEffect(() => {
+    console.log('pathnsmr', window.location.pathname)
+    const isProductPage = window.location.pathname.startsWith('/product/');
+    if (isProductPage) {
+    // Extract productId from URL if on product page
+    const productId = isProductPage ? location.pathname.split('/').pop() : null;
+    setProductId(productId)
+    } else setProductId(null)
+
+  }, [window.location.pathname])
   const {all_product} = useContext(ShopContext);
   const [product, setProduct] = useState(null)
-  const  productId  = props.productId; 
+  // const  productId  = props.productId; 
   useEffect(()=>{
    const newProduct =  all_product.find(product => product.id === parseInt(productId));
    setProduct(newProduct)
